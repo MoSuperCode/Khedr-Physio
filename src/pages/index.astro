@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Manuelle Therapie',
+    description: 'Gezielte Behandlung von Gelenken, Muskeln und Bindegewebe durch spezialisierte Handgriffe zur Schmerzlinderung und Mobilitätsverbesserung.',
+    icon: '🤲',
+    href: '/leistungen',
+  },
+  {
+    title: 'Krankengymnastik',
+    description: 'Individuell angepasste Übungsprogramme zur Rehabilitation nach Verletzungen, Operationen und bei chronischen Erkrankungen.',
+    icon: '🏃',
+    href: '/leistungen',
+  },
+  {
+    title: 'Sportphysiotherapie',
+    description: 'Spezialisierte Behandlung für Sportler: Verletzungsprävention, schnelle Rehabilitation und Leistungsoptimierung.',
+    icon: '⚡',
+    href: '/leistungen',
+  },
+  {
+    title: 'Massagetherapie',
+    description: 'Klassische und therapeutische Massagen zur Entspannung, Durchblutungsförderung und Behandlung von Muskelverspannungen.',
+    icon: '💆',
+    href: '/leistungen',
+  },
+  {
+    title: 'Elektrotherapie',
+    description: 'Einsatz elektrischer Reize zur Schmerztherapie, Muskelstimulation und Förderung der Geweberegeneration.',
+    icon: '⚙️',
+    href: '/leistungen',
+  },
+  {
+    title: 'Hausbesuche',
+    description: 'Professionelle Physiotherapie im Komfort Ihrer eigenen vier Wände – für Patienten mit eingeschränkter Mobilität.',
+    icon: '🏠',
+    href: '/leistungen',
+  },
+];
+
+const testimonials = [
+  {
+    quote: 'Nach meiner Knieoperation war ich in wenigen Wochen wieder auf den Beinen. Die individuelle Betreuung war außergewöhnlich.',
+    author: 'M.S., Wien',
+  },
+  {
+    quote: 'Meine chronischen Rückenschmerzen haben sich dank der manuellen Therapie deutlich gebessert. Ich bin sehr dankbar.',
+    author: 'K.B., Niederösterreich',
+  },
+  {
+    quote: 'Als Hobby-Läufer schätze ich die sportphysiotherapeutische Expertise besonders. Professionell und herzlich zugleich.',
+    author: 'T.H., Wien',
+  },
+];
+---
+
+<BaseLayout
+  title="Khedr Physiotherapie | Ihr Therapeut in Klagenfurt"
+  description="Professionelle Physiotherapie in Klagenfurt. Manuelle Therapie, Krankengymnastik, Sportphysiotherapie und mehr. Kassenverträge vorhanden. Jetzt Termin vereinbaren."
+>
+  <Header />
+
+  <main id="main-content">
+    <Hero
+      title="Ihr Weg zu mehr Beweglichkeit und Wohlbefinden"
+      subtitle="Professionelle Physiotherapie in Klagenfurt. Individuell, kompetent und einfühlsam – für Ihre Gesundheit."
+      ctaText="Jetzt Termin vereinbaren"
+      ctaHref="/kontakt"
+      secondaryCtaText="Unsere Leistungen"
+      secondaryCtaHref="/leistungen"
+    />
+
+    <!-- Über uns Vorschau -->
+    <section class="py-16 md:py-20 bg-warm" aria-labelledby="ueber-uns-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-sm font-semibold text-teal-primary uppercase tracking-wider">Über uns</span>
+            <h2 id="ueber-uns-heading" class="mt-2 text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Ihre Gesundheit steht bei uns im Mittelpunkt
+            </h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Seit über zehn Jahren vertrauen uns Patienten aus Klagenfurt und Umgebung ihre Gesundheit an. Unser Team erfahrener Physiotherapeuten behandelt Sie ganzheitlich und mit modernsten Methoden.
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Ob Rehabilitation nach einer Operation, chronische Schmerzen oder Sportphysiotherapie – wir entwickeln gemeinsam mit Ihnen einen individuellen Behandlungsplan.
+            </p>
+            <a
+              href="/ueber-uns"
+              class="inline-flex items-center text-teal-primary font-semibold hover:text-teal-light transition-colors group"
+            >
+              Mehr über uns erfahren
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+          <!-- Placeholder für Praxisfoto -->
+          <div
+            class="aspect-[4/3] rounded-2xl bg-sage-light flex items-center justify-center border-2 border-dashed border-sage-DEFAULT"
+            role="img"
+            aria-label="Foto der Physiotherapiepraxis – Platzhalter"
+          >
+            <div class="text-center text-teal-primary p-6">
+              <svg class="w-16 h-16 mx-auto mb-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <p class="text-sm font-medium opacity-60">Praxisfoto hier einfügen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leistungen -->
+    <section class="py-16 md:py-20" aria-labelledby="leistungen-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold text-teal-primary uppercase tracking-wider">Unsere Leistungen</span>
+          <h2 id="leistungen-heading" class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
+            Umfassende Physiotherapie aus einer Hand
+          </h2>
+          <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+            Wir bieten ein breites Spektrum an physiotherapeutischen Behandlungen an – zugeschnitten auf Ihre individuellen Bedürfnisse.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map(service => (
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              href={service.href}
+            />
+          ))}
+        </div>
+        <div class="text-center mt-10">
+          <a
+            href="/leistungen"
+            class="inline-flex items-center px-6 py-3 bg-teal-primary text-white font-semibold rounded-lg hover:bg-teal-light transition-colors"
+          >
+            Alle Leistungen & Preise
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warum wir? -->
+    <section class="py-16 md:py-20 bg-sage-light" aria-labelledby="usp-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold text-teal-primary uppercase tracking-wider">Warum wir?</span>
+          <h2 id="usp-heading" class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
+            Ihre Vorteile bei uns
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-teal-primary text-white flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">Erfahrung & Kompetenz</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Über 10 Jahre Erfahrung in der Physiotherapie. Unser Team ist regelmäßig in Fortbildungen, um Ihnen die neuesten Behandlungsmethoden zu bieten.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-teal-primary text-white flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">Individuelle Betreuung</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Jeder Patient ist einzigartig. Wir nehmen uns Zeit für eine ausführliche Anamnese und erstellen einen maßgeschneiderten Behandlungsplan für Sie.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-teal-primary text-white flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-2">Modernste Ausstattung</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Unsere Praxis ist mit aktuellsten Geräten für Elektrotherapie, Ultraschall und medizinisches Training ausgestattet, um optimale Behandlungsergebnisse zu erzielen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 md:py-20" aria-labelledby="testimonials-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold text-teal-primary uppercase tracking-wider">Patientenstimmen</span>
+          <h2 id="testimonials-heading" class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
+            Was unsere Patienten sagen
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map(item => (
+            <blockquote class="bg-warm rounded-xl p-6 border border-gray-100">
+              <div class="flex mb-3" aria-label="5 von 5 Sternen">
+                {Array(5).fill(0).map(() => (
+                  <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed mb-4 italic">"{item.quote}"</p>
+              <footer class="text-sm font-medium text-teal-primary">{item.author}</footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="py-14 bg-teal-primary" aria-labelledby="cta-heading">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 id="cta-heading" class="text-2xl md:text-3xl font-bold text-white mb-4">
+          Vereinbaren Sie noch heute Ihren Termin
+        </h2>
+        <p class="text-teal-100 mb-8 text-lg">
+          Wir freuen uns darauf, Sie auf dem Weg zu mehr Gesundheit zu begleiten.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/kontakt"
+            class="px-8 py-3 bg-white text-teal-primary font-semibold rounded-lg hover:bg-sage-light transition-colors text-base"
+          >
+            Termin vereinbaren
+          </a>
+          <a
+            href="tel:+43 680 1528027"
+            class="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-teal-primary transition-colors text-base"
+          >
+            +43 680 1528027
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

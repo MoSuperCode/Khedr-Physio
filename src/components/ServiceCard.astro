@@ -1,0 +1,30 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  href?: string;
+}
+
+const { title, description, icon = '✦', href } = Astro.props;
+---
+
+<article class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-sage-DEFAULT transition-all duration-200 flex flex-col">
+  <div class="w-12 h-12 rounded-lg bg-sage-light flex items-center justify-center mb-4 flex-shrink-0" aria-hidden="true">
+    <span class="text-teal-primary text-xl">{icon}</span>
+  </div>
+  <h3 class="font-semibold text-gray-900 text-lg mb-2">{title}</h3>
+  <p class="text-gray-600 text-sm leading-relaxed flex-grow">{description}</p>
+  {href && (
+    <a
+      href={href}
+      class="mt-4 text-sm font-medium text-teal-primary hover:text-teal-light transition-colors inline-flex items-center group"
+      aria-label={`Mehr erfahren über ${title}`}
+    >
+      Mehr erfahren
+      <svg class="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+  )}
+</article>

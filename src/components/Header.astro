@@ -1,0 +1,105 @@
+---
+const navLinks = [
+  { href: '/', label: 'Startseite' },
+  { href: '/ueber-uns', label: 'Über uns' },
+  { href: '/leistungen', label: 'Leistungen & Preise' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2 group" aria-label="Khedr Physiotherapie – Startseite">
+        <div class="w-9 h-9 rounded-md bg-teal-primary flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5 text-white" aria-hidden="true">
+            <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-bold text-teal-primary text-base leading-tight block">Physiotherapie</span>
+          <span class="text-xs text-gray-500 leading-tight block">Khedr Physiotherapie</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-1" aria-label="Hauptnavigation">
+        {navLinks.map(({ href, label }) => (
+          <a
+            href={href}
+            class={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ${
+              currentPath === href
+                ? 'text-teal-primary bg-sage-light'
+                : 'text-gray-700 hover:text-teal-primary hover:bg-sage-light'
+            }`}
+            aria-current={currentPath === href ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        ))}
+        <a
+          href="/kontakt"
+          class="ml-3 px-4 py-2 bg-teal-primary text-white text-sm font-semibold rounded-lg hover:bg-teal-light transition-colors duration-150"
+        >
+          Termin buchen
+        </a>
+      </nav>
+
+      <!-- Mobile hamburger (pure CSS toggle via checkbox) -->
+      <label class="md:hidden cursor-pointer p-2 rounded-md hover:bg-gray-100 transition-colors" aria-label="Menü öffnen">
+        <input type="checkbox" id="mobile-menu-toggle" class="sr-only peer" aria-expanded="false" />
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5 transition-transform peer-checked:rotate-45 peer-checked:translate-y-2"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5 transition-opacity peer-checked:opacity-0"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-transform peer-checked:-rotate-45 peer-checked:-translate-y-2"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-nav" class="md:hidden hidden peer-checked:block border-t border-gray-100 bg-white">
+    <nav class="max-w-6xl mx-auto px-4 py-3 space-y-1" aria-label="Mobile Navigation">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+            currentPath === href
+              ? 'text-teal-primary bg-sage-light'
+              : 'text-gray-700 hover:text-teal-primary hover:bg-sage-light'
+          }`}
+          aria-current={currentPath === href ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="/kontakt"
+        class="block mt-2 px-3 py-2 bg-teal-primary text-white text-sm font-semibold rounded-lg text-center hover:bg-teal-light transition-colors"
+      >
+        Termin buchen
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Mobile menu toggle via sibling selector */
+  #mobile-menu-toggle:checked ~ #mobile-nav,
+  label:has(#mobile-menu-toggle:checked) + div {
+    display: block;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle') as HTMLInputElement;
+  const nav = document.getElementById('mobile-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('change', () => {
+      nav.classList.toggle('hidden', !toggle.checked);
+      toggle.setAttribute('aria-expanded', String(toggle.checked));
+    });
+  }
+</script>

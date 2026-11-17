@@ -1,0 +1,69 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  title,
+  subtitle,
+  ctaText = 'Jetzt Termin vereinbaren',
+  ctaHref = '/kontakt',
+  secondaryCtaText,
+  secondaryCtaHref,
+} = Astro.props;
+---
+
+<section
+  class="relative bg-teal-dark overflow-hidden"
+  aria-label="Hero-Bereich"
+>
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-10" aria-hidden="true">
+    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+  </div>
+
+  <!-- Decorative circle -->
+  <div class="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-teal-primary opacity-30" aria-hidden="true"></div>
+  <div class="absolute -left-10 bottom-0 w-64 h-64 rounded-full bg-sage-DEFAULT opacity-20" aria-hidden="true"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+    <div class="max-w-2xl">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        {title}
+      </h1>
+      {subtitle && (
+        <p class="text-lg md:text-xl text-teal-100 mb-8 leading-relaxed">
+          {subtitle}
+        </p>
+      )}
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href={ctaHref}
+          class="inline-flex items-center justify-center px-6 py-3 bg-white text-teal-primary font-semibold rounded-lg hover:bg-sage-light transition-colors duration-200 text-base"
+        >
+          {ctaText}
+        </a>
+        {secondaryCtaText && secondaryCtaHref && (
+          <a
+            href={secondaryCtaHref}
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-teal-primary transition-colors duration-200 text-base"
+          >
+            {secondaryCtaText}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

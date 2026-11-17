@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const galleryItems = [
+  { label: 'Empfangsbereich', desc: 'Heller, einladender Empfang' },
+  { label: 'Behandlungsraum 1', desc: 'Moderner Behandlungsraum mit Therapieliege' },
+  { label: 'Behandlungsraum 2', desc: 'Ruhige Atmosphäre für Ihre Behandlung' },
+  { label: 'Trainingsbereich', desc: 'Therapeutisches Fitnessstudio' },
+  { label: 'Elektrotherapie', desc: 'Moderne Elektrotherapiegeräte' },
+  { label: 'Wartebereich', desc: 'Gemütlicher Wartebereich' },
+];
+
+const successStories = [
+  {
+    title: 'Rehabilitation nach Knie-OP',
+    duration: '8 Wochen',
+    result: 'Vollständige Wiederherstellung der Mobilität, Rückkehr zum Sport',
+    tags: ['Nachsorge', 'Sportphysiotherapie'],
+  },
+  {
+    title: 'Chronische Rückenschmerzen',
+    duration: '12 Wochen',
+    result: 'Deutliche Schmerzreduktion, verbesserte Körperhaltung und Alltagsfunktion',
+    tags: ['Manuelle Therapie', 'Krankengymnastik'],
+  },
+  {
+    title: 'Schulterverletzung Sportler',
+    duration: '6 Wochen',
+    result: 'Vollständige Wiederherstellung der Beweglichkeit und Kraft',
+    tags: ['Sportphysiotherapie', 'Elektrotherapie'],
+  },
+];
+---
+
+<BaseLayout
+  title="Portfolio & Praxis-Impressionen | Khedr Physiotherapie"
+  description="Einblicke in unsere moderne Physiotherapiepraxis in Klagenfurt. Galerie unserer Behandlungsräume und Erfolgsgeschichten unserer Patienten."
+  breadcrumb={[{ name: 'Portfolio', url: '/portfolio' }]}
+>
+  <Header />
+
+  <main id="main-content">
+    <!-- Page Hero -->
+    <div class="bg-teal-dark py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="mb-4">
+          <ol class="flex items-center space-x-2 text-sm text-teal-200">
+            <li><a href="/" class="hover:text-white transition-colors">Startseite</a></li>
+            <li aria-hidden="true"><span class="mx-1">/</span></li>
+            <li class="text-white font-medium" aria-current="page">Portfolio</li>
+          </ol>
+        </nav>
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Portfolio & Praxis-Impressionen</h1>
+        <p class="text-teal-100 text-lg max-w-2xl">Werfen Sie einen Blick in unsere moderne Praxis und lesen Sie von erfolgreichen Behandlungen.</p>
+      </div>
+    </div>
+
+    <!-- Bildergalerie -->
+    <section class="py-16 md:py-20" aria-labelledby="galerie-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold text-teal-primary uppercase tracking-wider">Einblicke</span>
+          <h2 id="galerie-heading" class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
+            Unsere Praxis
+          </h2>
+          <p class="mt-3 text-gray-600">Moderne Ausstattung in einer einladenden Atmosphäre.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {galleryItems.map(item => (
+            <figure class="group overflow-hidden rounded-xl border border-gray-100">
+              <div
+                class="aspect-[4/3] bg-sage-light flex flex-col items-center justify-center border-b border-dashed border-sage-DEFAULT group-hover:bg-sage-DEFAULT transition-colors"
+                role="img"
+                aria-label={`${item.label}: ${item.desc} – Platzhalter`}
+              >
+                <svg class="w-12 h-12 text-teal-primary opacity-30 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="text-xs text-teal-primary opacity-50">Foto einfügen</span>
+              </div>
+              <figcaption class="p-3 bg-white">
+                <p class="font-medium text-gray-900 text-sm">{item.label}</p>
+                <p class="text-xs text-gray-500">{item.desc}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <p class="text-center mt-8 text-sm text-gray-500 italic">
+          Echte Fotos der Praxis folgen – bitte beim Web-Designer einreichen.
+        </p>
+      </div>
+    </section>
+
+    <!-- Vorher / Nachher konzeptuell -->
+    <section class="py-16 md:py-20 bg-warm" aria-labelledby="behandlung-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold text-teal-primary uppercase tracking-wider">Behandlungsverläufe</span>
+          <h2 id="behandlung-heading" class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
+            Von der Diagnose zur Genesung
+          </h2>
+          <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+            Ein strukturierter Behandlungsprozess sorgt für nachhaltige Ergebnisse. So sieht Ihre Behandlung bei uns aus.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {[
+            { step: '1', title: 'Erstgespräch & Anamnese', desc: 'Wir nehmen uns Zeit für Ihre Geschichte und analysieren die Ursachen Ihrer Beschwerden.' },
+            { step: '2', title: 'Befund & Diagnose', desc: 'Körperliche Untersuchung und Erstellung eines individuellen Befundberichts.' },
+            { step: '3', title: 'Behandlungsplan', desc: 'Gemeinsam erstellen wir einen maßgeschneiderten Therapieplan mit klaren Zielen.' },
+            { step: '4', title: 'Behandlung & Nachsorge', desc: 'Regelmäßige Behandlungen mit Heimübungen und langfristiger Nachsorge.' },
+          ].map(item => (
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 text-center">
+              <div class="w-10 h-10 rounded-full bg-teal-primary text-white font-bold text-lg flex items-center justify-center mx-auto mb-3" aria-label={`Schritt ${item.step}`}>
+                {item.step}
+              </div>
+              <h3 class="font-semibold text-gray-900 text-sm mb-2">{item.title}</h3>
+              <p class="text-gray-600 text-xs leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Erfolgsgeschichten -->
+    <section class="py-16 md:py-20" aria-labelledby="erfolge-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold text-teal-primary uppercase tracking-wider">Fallbeispiele</span>
+          <h2 id="erfolge-heading" class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
+            Erfolgreiche Behandlungen
+          </h2>
+          <p class="mt-3 text-gray-600 max-w-xl mx-auto">
+            Anonymisierte Fallbeispiele aus unserer Praxis zeigen, was mit professioneller Physiotherapie möglich ist.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {successStories.map(story => (
+            <article class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+              <div class="bg-sage-light p-4 border-b border-sage-DEFAULT">
+                <h3 class="font-bold text-gray-900">{story.title}</h3>
+                <p class="text-teal-primary text-sm font-medium mt-1">Behandlungsdauer: {story.duration}</p>
+              </div>
+              <div class="p-5">
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                  <strong>Ergebnis:</strong> {story.result}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {story.tags.map(tag => (
+                    <span class="px-2 py-1 bg-sage-light text-teal-primary text-xs font-medium rounded-md">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-14 bg-teal-primary">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">Werden Sie unsere nächste Erfolgsgeschichte</h2>
+        <a href="/kontakt" class="inline-block px-8 py-3 bg-white text-teal-primary font-semibold rounded-lg hover:bg-sage-light transition-colors">
+          Jetzt Termin vereinbaren
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

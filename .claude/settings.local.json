@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const p = require\\('./node_modules/@astrojs/sitemap/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(node -e \"const p = require\\('./node_modules/astro/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(xargs sed -i '' -e 's/Physiotherapie Musterpraxis/Khedr Physiotherapie/g' -e 's/physiotherapie-musterpraxis\\\\.at/khedr-physiotherapie\\\\.at/g' -e 's/Musterpraxis/Khedr Physiotherapie/g' -e s/Musterstadt/Klagenfurt/g -e 's/XXXX Klagenfurt/9020 Klagenfurt/g' -e s/XXXX/9020/g -e 's/Musterstraße 1/\\\\[Adresse eintragen\\\\]/g' -e 's/+43 XXX XXX XXXX/+43 680 1528027/g' -e 's/+43-XXX-XXXXXXX/+43 680 1528027/g' -e s/+43XXXXXXXXX/+436801528027/g -e 's/XXX XXX XXXX/680 1528027/g' -e 's/info@khedr-physiotherapie\\\\.at/info@khedr-physiotherapie.at/g')"
+    ]
+  }
+}

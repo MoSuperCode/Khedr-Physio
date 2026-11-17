@@ -1,0 +1,126 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+  breadcrumb?: { name: string; url: string }[];
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og-default.jpg',
+  canonical,
+  breadcrumb,
+} = Astro.props;
+
+const siteUrl = 'https://khedr-physiotherapie.at';
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "@id": `${siteUrl}/#business`,
+  "name": "Khedr Physiotherapie",
+  "description": "Ihre professionelle Physiotherapiepraxis in Klagenfurt. Individuelle Behandlungen, modernste Ausstattung und erfahrene Therapeuten.",
+  "url": siteUrl,
+  "telephone": "+43 680 1528027",
+  "email": "info@khedr-physiotherapie.at",
+  "image": ogImageUrl,
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Barzahlung, Kreditkarte, Banküberweisung",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[Adresse eintragen]",
+    "addressLocality": "Klagenfurt",
+    "postalCode": "9020",
+    "addressCountry": "AT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.2082,
+    "longitude": 16.3738
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "08:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "16:00" }
+  ],
+  "medicalSpecialty": "Physiotherapy",
+  "sameAs": [
+    "https://www.facebook.com/PLACEHOLDER",
+    "https://www.instagram.com/PLACEHOLDER"
+  ]
+};
+
+const breadcrumbSchema = breadcrumb ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Startseite", "item": siteUrl },
+    ...breadcrumb.map((item, i) => ({
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": item.name,
+      "item": `${siteUrl}${item.url}`
+    }))
+  ]
+} : null;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:locale" content="de_AT" />
+  <meta property="og:site_name" content="Khedr Physiotherapie" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts: preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  </noscript>
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+  <!-- JSON-LD: Breadcrumb (inner pages only) -->
+  {breadcrumbSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  )}
+</head>
+<body class="font-sans text-gray-900 bg-white antialiased">
+  <slot />
+</body>
+</html>
