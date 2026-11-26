@@ -1,0 +1,109 @@
+---
+import { withBase } from "../utils/url";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Impressum | Khedr Physiotherapie"
+  description="Impressum und Offenlegung gemäß § 5 ECG, § 25 MedienG und Berufsangaben der Khedr Physiotherapie in Klagenfurt."
+  breadcrumb={[{ name: 'Impressum', url: '/impressum' }]}
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="bg-teal-dark py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="mb-4">
+          <ol class="flex items-center space-x-2 text-sm text-teal-200">
+            <li><a href={withBase("/")} class="hover:text-white transition-colors">Startseite</a></li>
+            <li aria-hidden="true"><span class="mx-1">/</span></li>
+            <li class="text-white font-medium" aria-current="page">Impressum</li>
+          </ol>
+        </nav>
+        <h1 class="text-3xl md:text-4xl font-bold text-white">Impressum</h1>
+      </div>
+    </div>
+
+    <section class="py-16 md:py-20">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-gray-600 leading-relaxed">
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Medieninhaber und Betreiber</h2>
+          <p>
+            Karim Khedr<br />
+            Khedr Physiotherapie<br />
+            [Straße und Hausnummer eintragen]<br />
+            9020 Klagenfurt, Österreich
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Kontakt</h2>
+          <p>
+            Telefon: <a href="tel:+436801528027" class="text-teal-primary hover:underline">+43 680 1528027</a><br />
+            E-Mail: <a href="mailto:info@khedr-physiotherapie.at" class="text-teal-primary hover:underline">info@khedr-physiotherapie.at</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Unternehmensgegenstand</h2>
+          <p>Freiberufliche Ausübung der Physiotherapie.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Berufsrechtliche Angaben</h2>
+          <ul class="space-y-1">
+            <li>Berufsbezeichnung: Physiotherapeut (verliehen in Österreich)</li>
+            <li>Berufsrecht: Bundesgesetz über die Regelung der gehobenen medizinisch-technischen Dienste (MTD-Gesetz), abrufbar unter <a href="https://www.ris.bka.gv.at" class="text-teal-primary hover:underline" rel="noopener noreferrer" target="_blank">www.ris.bka.gv.at</a></li>
+            <li>Aufsichtsbehörde: [zuständige Bezirksverwaltungsbehörde eintragen]</li>
+            <li>Berufsverband: [z. B. Physio Austria – bitte prüfen/eintragen]</li>
+            <li>UID-Nummer: [falls vorhanden eintragen]</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Grundlegende Richtung</h2>
+          <p>Information über die Leistungen der Praxis Khedr Physiotherapie.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Haftung für Inhalte</h2>
+          <p>
+            Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität
+            kann jedoch keine Gewähr übernommen werden. Die Informationen auf dieser Website ersetzen keine ärztliche Diagnose oder Behandlung.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Haftung für Links</h2>
+          <p>
+            Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte
+            übernehmen wir keine Gewähr. Verantwortlich ist stets der jeweilige Anbieter. Bei Bekanntwerden von Rechtsverletzungen
+            werden derartige Links umgehend entfernt.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Urheberrecht</h2>
+          <p>
+            Die Inhalte dieser Website unterliegen dem österreichischen Urheberrecht. Vervielfältigung, Bearbeitung und Verbreitung
+            bedürfen der schriftlichen Zustimmung des Betreibers.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Streitbeilegung</h2>
+          <p>
+            Verbraucher haben die Möglichkeit, Beschwerden an die Schlichtungsstelle für Verbrauchergeschäfte
+            (<a href="https://www.verbraucherschlichtung.or.at" class="text-teal-primary hover:underline" rel="noopener noreferrer" target="_blank">www.verbraucherschlichtung.or.at</a>) zu richten.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

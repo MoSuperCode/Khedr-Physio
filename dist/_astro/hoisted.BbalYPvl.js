@@ -1,0 +1,1 @@
+const e=document.getElementById("mobile-menu-toggle"),t=document.getElementById("mobile-nav");e&&t&&e.addEventListener("change",()=>{t.classList.toggle("hidden",!e.checked),e.setAttribute("aria-expanded",String(e.checked))});

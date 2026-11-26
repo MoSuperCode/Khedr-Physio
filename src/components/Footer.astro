@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../utils/url";
 const year = new Date().getFullYear();
 ---
 
@@ -24,11 +25,11 @@ const year = new Date().getFullYear();
       <nav aria-label="Footer Navigation">
         <h3 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Navigation</h3>
         <ul class="space-y-2">
-          <li><a href="/" class="text-sm text-teal-200 hover:text-white transition-colors">Startseite</a></li>
-          <li><a href="/ueber-uns" class="text-sm text-teal-200 hover:text-white transition-colors">Über uns</a></li>
-          <li><a href="/leistungen" class="text-sm text-teal-200 hover:text-white transition-colors">Leistungen & Preise</a></li>
-          <li><a href="/portfolio" class="text-sm text-teal-200 hover:text-white transition-colors">Portfolio</a></li>
-          <li><a href="/kontakt" class="text-sm text-teal-200 hover:text-white transition-colors">Kontakt</a></li>
+          <li><a href={withBase("/")} class="text-sm text-teal-200 hover:text-white transition-colors">Startseite</a></li>
+          <li><a href={withBase("/ueber-uns")} class="text-sm text-teal-200 hover:text-white transition-colors">Über uns</a></li>
+          <li><a href={withBase("/leistungen")} class="text-sm text-teal-200 hover:text-white transition-colors">Leistungen & Preise</a></li>
+          <li><a href={withBase("/portfolio")} class="text-sm text-teal-200 hover:text-white transition-colors">Portfolio</a></li>
+          <li><a href={withBase("/kontakt")} class="text-sm text-teal-200 hover:text-white transition-colors">Kontakt</a></li>
         </ul>
       </nav>
 
@@ -67,8 +68,8 @@ const year = new Date().getFullYear();
     <div class="mt-10 pt-6 border-t border-teal-800 flex flex-col sm:flex-row justify-between items-center gap-4">
       <p class="text-xs text-teal-300">&copy; {year} Khedr Physiotherapie. Alle Rechte vorbehalten.</p>
       <nav aria-label="Rechtliche Links" class="flex space-x-4">
-        <a href="/impressum" class="text-xs text-teal-300 hover:text-white transition-colors">Impressum</a>
-        <a href="/datenschutz" class="text-xs text-teal-300 hover:text-white transition-colors">Datenschutz</a>
+        <a href={withBase("/impressum")} class="text-xs text-teal-300 hover:text-white transition-colors">Impressum</a>
+        <a href={withBase("/datenschutz")} class="text-xs text-teal-300 hover:text-white transition-colors">Datenschutz</a>
       </nav>
     </div>
   </div>

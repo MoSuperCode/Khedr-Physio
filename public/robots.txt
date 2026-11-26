@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://khedr-physiotherapie.at/sitemap.xml
+Sitemap: https://mosupercode.github.io/Khedr-Physio/sitemap.xml

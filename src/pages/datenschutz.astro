@@ -1,0 +1,105 @@
+---
+import { withBase } from "../utils/url";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Datenschutz | Khedr Physiotherapie"
+  description="Datenschutzerklärung der Khedr Physiotherapie in Klagenfurt: Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
+  breadcrumb={[{ name: 'Datenschutz', url: '/datenschutz' }]}
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="bg-teal-dark py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Breadcrumb" class="mb-4">
+          <ol class="flex items-center space-x-2 text-sm text-teal-200">
+            <li><a href={withBase("/")} class="hover:text-white transition-colors">Startseite</a></li>
+            <li aria-hidden="true"><span class="mx-1">/</span></li>
+            <li class="text-white font-medium" aria-current="page">Datenschutz</li>
+          </ol>
+        </nav>
+        <h1 class="text-3xl md:text-4xl font-bold text-white">Datenschutzerklärung</h1>
+      </div>
+    </div>
+
+    <section class="py-16 md:py-20">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-gray-600 leading-relaxed">
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">1. Verantwortlicher</h2>
+          <p>
+            Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der DSGVO ist:<br />
+            Karim Khedr, Khedr Physiotherapie, [Straße und Hausnummer eintragen], 9020 Klagenfurt, Österreich<br />
+            E-Mail: <a href="mailto:info@khedr-physiotherapie.at" class="text-teal-primary hover:underline">info@khedr-physiotherapie.at</a><br />
+            Telefon: <a href="tel:+436801528027" class="text-teal-primary hover:underline">+43 680 1528027</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">2. Hosting</h2>
+          <p>
+            Diese Website wird über GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA) bereitgestellt.
+            Beim Aufruf der Website verarbeitet der Hosting-Anbieter technisch notwendige Verbindungsdaten
+            (z. B. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp). Rechtsgrundlage ist unser berechtigtes Interesse
+            an einer sicheren und stabilen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO).
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">3. Kontaktaufnahme</h2>
+          <p>
+            Wenn Sie uns per Telefon oder E-Mail kontaktieren oder das Kontaktformular nutzen, verarbeiten wir Ihre Angaben
+            (Name, E-Mail-Adresse, ggf. Telefonnummer, Wunschtermin, Nachricht) zur Bearbeitung Ihrer Anfrage.
+            Das Kontaktformular öffnet Ihr E-Mail-Programm mit einer vorbereiteten Nachricht. Die Daten werden erst mit dem Absenden
+            durch Sie über Ihren E-Mail-Anbieter an uns übermittelt; über die Website selbst werden keine Formulardaten gespeichert.
+            Rechtsgrundlage sind die Durchführung vorvertraglicher Maßnahmen bzw. die Erfüllung eines Vertrags (Art. 6 Abs. 1 lit. b DSGVO)
+            sowie Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie durch Ankreuzen des Kästchens im Formular erteilen.
+          </p>
+          <p class="mt-3">
+            Bitte übermitteln Sie keine Gesundheitsdaten (z. B. Diagnosen) per unverschlüsselter E-Mail. Diese besprechen wir
+            gerne persönlich oder telefonisch.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">4. Google Fonts und Google Maps</h2>
+          <p>
+            Zur einheitlichen Darstellung werden Schriftarten von Google Fonts (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland)
+            geladen. Auf der Kontaktseite ist optional eine Karte von Google Maps eingebettet. Dabei wird Ihre IP-Adresse an Google übermittelt.
+            Rechtsgrundlage ist unser berechtigtes Interesse an einer ansprechenden Darstellung und einfachen Anfahrt (Art. 6 Abs. 1 lit. f DSGVO).
+            Weitere Informationen finden Sie unter <a href="https://policies.google.com/privacy" class="text-teal-primary hover:underline" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">5. Speicherdauer</h2>
+          <p>
+            Anfragen speichern wir nur so lange, wie es zur Bearbeitung erforderlich ist bzw. gesetzliche Aufbewahrungspflichten bestehen.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">6. Ihre Rechte</h2>
+          <p>
+            Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit
+            und Widerspruch sowie das Recht, eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen.
+            Wenden Sie sich dazu an die oben genannte Kontaktadresse.
+          </p>
+          <p class="mt-3">
+            Sie haben außerdem das Recht auf Beschwerde bei der österreichischen Datenschutzbehörde,
+            Barichgasse 40–42, 1030 Wien, <a href="https://www.dsb.gv.at" class="text-teal-primary hover:underline" rel="noopener noreferrer" target="_blank">www.dsb.gv.at</a>.
+          </p>
+        </div>
+
+        <p class="text-sm text-gray-500">Stand: November 2026</p>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

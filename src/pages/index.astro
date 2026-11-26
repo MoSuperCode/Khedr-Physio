@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../utils/url";
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -10,37 +11,37 @@ const services = [
     title: 'Manuelle Therapie',
     description: 'Gezielte Behandlung von Gelenken, Muskeln und Bindegewebe durch spezialisierte Handgriffe zur Schmerzlinderung und Mobilitätsverbesserung.',
     icon: '🤲',
-    href: '/leistungen',
+    href: withBase("/leistungen"),
   },
   {
     title: 'Krankengymnastik',
     description: 'Individuell angepasste Übungsprogramme zur Rehabilitation nach Verletzungen, Operationen und bei chronischen Erkrankungen.',
     icon: '🏃',
-    href: '/leistungen',
+    href: withBase("/leistungen"),
   },
   {
     title: 'Sportphysiotherapie',
     description: 'Spezialisierte Behandlung für Sportler: Verletzungsprävention, schnelle Rehabilitation und Leistungsoptimierung.',
     icon: '⚡',
-    href: '/leistungen',
+    href: withBase("/leistungen"),
   },
   {
     title: 'Massagetherapie',
     description: 'Klassische und therapeutische Massagen zur Entspannung, Durchblutungsförderung und Behandlung von Muskelverspannungen.',
     icon: '💆',
-    href: '/leistungen',
+    href: withBase("/leistungen"),
   },
   {
     title: 'Elektrotherapie',
     description: 'Einsatz elektrischer Reize zur Schmerztherapie, Muskelstimulation und Förderung der Geweberegeneration.',
     icon: '⚙️',
-    href: '/leistungen',
+    href: withBase("/leistungen"),
   },
   {
     title: 'Hausbesuche',
     description: 'Professionelle Physiotherapie im Komfort Ihrer eigenen vier Wände – für Patienten mit eingeschränkter Mobilität.',
     icon: '🏠',
-    href: '/leistungen',
+    href: withBase("/leistungen"),
   },
 ];
 
@@ -71,9 +72,9 @@ const testimonials = [
       title="Ihr Weg zu mehr Beweglichkeit und Wohlbefinden"
       subtitle="Professionelle Physiotherapie in Klagenfurt. Individuell, kompetent und einfühlsam – für Ihre Gesundheit."
       ctaText="Jetzt Termin vereinbaren"
-      ctaHref="/kontakt"
+      ctaHref={withBase("/kontakt")}
       secondaryCtaText="Unsere Leistungen"
-      secondaryCtaHref="/leistungen"
+      secondaryCtaHref={withBase("/leistungen")}
     />
 
     <!-- Über uns Vorschau -->
@@ -92,7 +93,7 @@ const testimonials = [
               Ob Rehabilitation nach einer Operation, chronische Schmerzen oder Sportphysiotherapie – wir entwickeln gemeinsam mit Ihnen einen individuellen Behandlungsplan.
             </p>
             <a
-              href="/ueber-uns"
+              href={withBase("/ueber-uns")}
               class="inline-flex items-center text-teal-primary font-semibold hover:text-teal-light transition-colors group"
             >
               Mehr über uns erfahren
@@ -142,7 +143,7 @@ const testimonials = [
         </div>
         <div class="text-center mt-10">
           <a
-            href="/leistungen"
+            href={withBase("/leistungen")}
             class="inline-flex items-center px-6 py-3 bg-teal-primary text-white font-semibold rounded-lg hover:bg-teal-light transition-colors"
           >
             Alle Leistungen & Preise
@@ -230,7 +231,7 @@ const testimonials = [
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/kontakt"
+            href={withBase("/kontakt")}
             class="px-8 py-3 bg-white text-teal-primary font-semibold rounded-lg hover:bg-sage-light transition-colors text-base"
           >
             Termin vereinbaren

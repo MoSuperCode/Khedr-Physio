@@ -1,20 +1,22 @@
 ---
+import { withBase } from "../utils/url";
 const navLinks = [
-  { href: '/', label: 'Startseite' },
-  { href: '/ueber-uns', label: 'Über uns' },
-  { href: '/leistungen', label: 'Leistungen & Preise' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/kontakt', label: 'Kontakt' },
+  { href: withBase("/"), label: 'Startseite' },
+  { href: withBase("/ueber-uns"), label: 'Über uns' },
+  { href: withBase("/leistungen"), label: 'Leistungen & Preise' },
+  { href: withBase("/portfolio"), label: 'Portfolio' },
+  { href: withBase("/kontakt"), label: 'Kontakt' },
 ];
 
-const currentPath = Astro.url.pathname;
+const normalize = (p: string) => (p.length > 1 ? p.replace(/\/$/, "") : p);
+const currentPath = normalize(Astro.url.pathname);
 ---
 
 <header class="bg-white shadow-sm sticky top-0 z-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2 group" aria-label="Khedr Physiotherapie – Startseite">
+      <a href={withBase("/")} class="flex items-center space-x-2 group" aria-label="Khedr Physiotherapie – Startseite">
         <div class="w-9 h-9 rounded-md bg-teal-primary flex items-center justify-center flex-shrink-0">
           <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5 text-white" aria-hidden="true">
             <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -32,17 +34,17 @@ const currentPath = Astro.url.pathname;
           <a
             href={href}
             class={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ${
-              currentPath === href
+              currentPath === normalize(href)
                 ? 'text-teal-primary bg-sage-light'
                 : 'text-gray-700 hover:text-teal-primary hover:bg-sage-light'
             }`}
-            aria-current={currentPath === href ? 'page' : undefined}
+            aria-current={currentPath === normalize(href) ? 'page' : undefined}
           >
             {label}
           </a>
         ))}
         <a
-          href="/kontakt"
+          href={withBase("/kontakt")}
           class="ml-3 px-4 py-2 bg-teal-primary text-white text-sm font-semibold rounded-lg hover:bg-teal-light transition-colors duration-150"
         >
           Termin buchen
@@ -66,17 +68,17 @@ const currentPath = Astro.url.pathname;
         <a
           href={href}
           class={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-            currentPath === href
+            currentPath === normalize(href)
               ? 'text-teal-primary bg-sage-light'
               : 'text-gray-700 hover:text-teal-primary hover:bg-sage-light'
           }`}
-          aria-current={currentPath === href ? 'page' : undefined}
+          aria-current={currentPath === normalize(href) ? 'page' : undefined}
         >
           {label}
         </a>
       ))}
       <a
-        href="/kontakt"
+        href={withBase("/kontakt")}
         class="block mt-2 px-3 py-2 bg-teal-primary text-white text-sm font-semibold rounded-lg text-center hover:bg-teal-light transition-colors"
       >
         Termin buchen
